@@ -11,7 +11,7 @@ import sys
 ELLIPSIS = chr(8230)
 
 # Constants for the alignments of tabs
-MIN_NAME_WIDTH = 4
+MIN_NAME_WIDTH = 8
 MAX_NAME_WIDTH = 64
 
 
