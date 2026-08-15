@@ -945,7 +945,6 @@ class FileTabWidget(CompactTabWidget):
 
             self.fileTabsChanged.emit()
 
-
     def addItem(self, item, update=True):
         """Add item to the tab widget. Set update to False if you are
         calling this method many times in a row. Then use updateItemsFull()
@@ -956,11 +955,6 @@ class FileTabWidget(CompactTabWidget):
         i = self.addTab(item.editor, item.name)
         tabBut = EditorTabToolButton(self.tabBar())
         self.tabBar().setTabButton(i, QtWidgets.QTabBar.ButtonPosition.LeftSide, tabBut)
-
-        # Enable navite close button
-#         self.tabBar().setTabsClosable(True)
-#         self.tabBar().tabCloseRequested.connect(self.removeTab(self.currentIndex()))
-
 
         # Keep informed about changes
         item.editor.somethingChanged.connect(self.updateItems)
@@ -987,6 +981,7 @@ class FileTabWidget(CompactTabWidget):
 
     def updateItems(self):
         """Update the appearance of the items."""
+
         # Get items and tab bar
         items = self.items()
         tabBar = self.tabBar()
@@ -1112,7 +1107,6 @@ class EditorTabs(QtWidgets.QWidget):
 
         # Enable native close button
         self._tabs.setTabsClosable(True)
-
 
     @property
     def _fileDialogOptions(self):
