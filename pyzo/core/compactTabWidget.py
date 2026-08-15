@@ -18,65 +18,6 @@ MAX_NAME_WIDTH = 64
 ## Define style sheet for the tabs
 
 STYLESHEET = """
-QTabWidget::pane { /* The tab widget frame */
-    border-top: 0px solid #A09B90;
-}
-
-QTabWidget::tab-bar {
-    left: 0px; /* move to the right by x px */
-}
-
-
-/* Style the tab using the tab sub-control. Note that
- it reads QTabBar _not_ QTabWidget */
-QTabBar::tab {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                stop: 0.0 GRADIENT_UNSEL1,
-                stop: 0.4 GRADIENT_UNSEL2,
-                stop: 1.0 GRADIENT_UNSEL3 );
-    border: 1px solid #A09B90;
-    border-bottom-color: #DAD5CC; /* same as the pane color */
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    min-width: 5ex;
-    padding-bottom: PADDING_BOTTOMpx;
-    padding-top: PADDING_TOPpx;
-    padding-left: PADDING_LEFTpx;
-    padding-right: PADDING_RIGHTpx;
-    margin-right: -1px; /* "combine" borders */
-}
-QTabBar::tab:last {
-    margin-right: 0px;
-}
-
-/* Style the selected tab, hoovered tab, and other tabs. */
-QTabBar::tab:hover {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                stop: 0.0 GRADIENT_SEL1,
-                stop: 0.4 GRADIENT_SEL2,
-                stop: 1.0 GRADIENT_SEL3 );
-}
-QTabBar::tab:selected {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                stop: 0.0 GRADIENT_TOP_SELECTED,
-                stop: 0.12 GRADIENT_TOP_SELECTED,
-                stop: 0.120001 GRADIENT_SEL1,
-                stop: 0.4 GRADIENT_SEL2,
-                stop: 1.0 GRADIENT_SEL3 );
-}
-
-QTabBar::tab:selected {
-    border-width: 1px;
-    border-bottom-width: 0px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-color: BORDER_COLOR_SELECTED;
-}
-
-QTabBar::tab:!selected {
-    margin-top: 3px; /* make non-selected tabs look smaller */
-}
-
 """
 
 STYLESHEET_REPLACEMENTS = [  # name, dark, light
