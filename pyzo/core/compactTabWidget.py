@@ -18,8 +18,43 @@ MAX_NAME_WIDTH = 64
 ## Define style sheet for the tabs
 
 STYLESHEET = """
-"""
+QTabBar::tab {
+    min-width: 5ex;
+    padding-bottom: PADDING_BOTTOMpx;
+    padding-top: PADDING_TOPpx;
+    padding-left: PADDING_LEFTpx;
+    padding-right: PADDING_RIGHTpx;
+    margin-right: -1px; /* "combine" borders */
+}
+QTabBar::tab:last {
+    margin-right: 0px;
+}
+/* Style the selected tab, hoovered tab, and other tabs. */
+QTabBar::tab:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                stop: 0.0 GRADIENT_SEL1,
+                stop: 0.4 GRADIENT_SEL2,
+                stop: 1.0 GRADIENT_SEL3 );
+}
+QTabBar::tab:selected {
+    background: stop: 0.0 GRADIENT_TOP_SELECTED,
+                stop: 0.12 GRADIENT_TOP_SELECTED,
+                stop: 0.120001 GRADIENT_SEL1,
+                stop: 0.4 GRADIENT_SEL2,
+                stop: 1.0 GRADIENT_SEL3 );
+}
+QTabBar::tab:selected {
+    border-width: 1px;
+    border-bottom-width: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-color: BORDER_COLOR_SELECTED;
+}
+QTabBar::tab:!selected {
+    margin-top: 3px; /* make non-selected tabs look smaller */
+}
 
+"""
 STYLESHEET_REPLACEMENTS = [  # name, dark, light
     ("BORDER_COLOR_SELECTED", "#ddd", "#333"),
     ("GRADIENT_TOP_SELECTED", "rgba(0,255,255,128)", "rgba(0,0,128,128)"),
